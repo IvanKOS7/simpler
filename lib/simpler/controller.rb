@@ -20,7 +20,6 @@ module Simpler
       send(action)
       write_response
 
-      @request.env['simpler.response'] = @response.finish
     end
 
     private
@@ -39,9 +38,9 @@ module Simpler
     end
 
     def render_body
-       if @request.env['simpler.template'] != 0
-         View.new(@request.env).render(binding)
-       end
+     if @request.env['simpler.template'] != 0
+       View.new(@request.env).render(binding)
+     end
     end
 
     def status(status)
